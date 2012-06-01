@@ -396,4 +396,16 @@ describe NMatrix do
     end
   end
 
+  it "returns enumerator for each without block" do
+    n = NMatrix.new(:dense, [3,3], [1,2,3,4,5,6,7,8,9], :object)
+    n.each.should be_an_instance_of Enumerator
+    n.each.to_a.should == [1,2,3,4,5,6,7,8,9]
+  end
+
+  it "returns enumerator for each without block" do
+    n = NMatrix.new(:dense, [3,3], [1,2,3,4,5,6,7,8,9], :int64)
+    n.each.should be_an_instance_of Enumerator
+    n.each.to_a.should == [1,2,3,4,5,6,7,8,9]
+  end
+
 end

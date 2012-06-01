@@ -1361,6 +1361,8 @@ static VALUE nm_dense_each(VALUE nmatrix) {
 static VALUE nm_each(VALUE nmatrix) {
   volatile VALUE nm = nmatrix; // not sure why we do this, but it gets done in ruby's array.c.
 
+  RETURN_ENUMERATOR(nm, 0, 0);
+
   switch(NM_STYPE(nm)) {
   case S_DENSE:
     return nm_dense_each(nm);
